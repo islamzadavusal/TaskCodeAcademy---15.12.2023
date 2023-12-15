@@ -26,8 +26,8 @@ fun main() {
         val name = it.getName()
 
         when(it) {
-            is TwoDimensional -> println(name + it.calculateArea())
-            is ThreeDimensional -> println(name + it.calculateVolume())
+            is TwoDimensional -> println(name + ": " + it.calculateArea())
+            is ThreeDimensional -> println(name + ": " + it.calculateVolume())
             else -> throw Exception("Error")
 
         }
@@ -36,9 +36,9 @@ fun main() {
 
 //Enum class
 enum class ShapeType (shape: String) {
-    CIRCLE("circle"),
-    RECTANGLE("rectangle"),
-    SPHERE("sphere")
+    CIRCLE("Circle"),
+    RECTANGLE("Rectangle"),
+    SPHERE("Sphere")
 
 }
 
@@ -67,7 +67,7 @@ interface ThreeDimensional {
 class Circle (val radius: Double) :Shape(), TwoDimensional {
 
     override fun getName():String {
-        return "circle"
+        return ShapeType.CIRCLE.name
     }
 
     override fun calculateArea(): Double {
@@ -79,7 +79,7 @@ class Circle (val radius: Double) :Shape(), TwoDimensional {
 class Rectangle (val width: Double, val height: Double) : Shape(), TwoDimensional{
 
     override fun getName():String {
-        return "rectangle"
+        return ShapeType.RECTANGLE.name
     }
 
     override fun calculateArea(): Double {
@@ -92,7 +92,7 @@ class Sphere (val radius : Double): TwoDimensional, ThreeDimensional, Shape(){
 
 
     override fun getName():String {
-        return "sphere"
+        return ShapeType.SPHERE.name
     }
 
     override fun calculateArea(): Double {
