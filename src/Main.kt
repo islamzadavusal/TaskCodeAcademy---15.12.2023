@@ -1,18 +1,14 @@
 
 fun main() {
 
-    //
-
     println("Radius of a Circle:")
     val circleRadius = readln()
-
 
     println("Width of a Rectangle:")
     val rectangleWidth = readln()
 
     println("Height of a Rectangle:")
     val rectangleHeight = readln()
-
 
     println("Radius of a Sphere:")
     val sphereRadius = readln()
@@ -28,10 +24,10 @@ fun main() {
         val name = it.getName()
 
         when(it) {
-            is TwoDimensional -> println(name + ": " + it.calculateArea())
-            is ThreeDimensional -> println(name + ": " + it.calculateVolume())
-            else -> throw Exception("Error")
 
+            is ThreeDimensional -> {
+                println("$name = Volume: ${it.calculateVolume()}" + ", Area: ${(it as TwoDimensional).calculateArea()}")}
+            else -> println("$name = ${(it as TwoDimensional).calculateArea()}")
         }
     }
 }
